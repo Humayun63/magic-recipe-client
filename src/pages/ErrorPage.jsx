@@ -12,7 +12,7 @@ const ErrorPage = () => {
                 <p className='error-text md:-rotate-[50deg] text-6xl'>{status || 404}</p>
                 <p className='error-text md:-rotate-6 text-xl md:text-3xl'>{error?.message || 'Something went wrong!'}</p>
             </div>
-            <button className='error-btn  absolute top-1/3 md:bottom-1/4 left-[45%]  md:left-3/4'>
+            <button className='error-btn  absolute top-1/3 md:top-3/4 left-[45%]  md:left-3/4'>
                 <Link to='/'>Go Back To Home</Link>
             </button>
         </div>
