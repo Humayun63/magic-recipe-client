@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.outlet-min-height{
+    min-height: calc(90vh - 100px);
+}
 .magic-container{
     @apply lg:w-11/12 mx-auto my-4 py-1
 }
