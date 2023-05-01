@@ -12,7 +12,7 @@ const Login = () => {
                 </div>
                 <div className="form-controls">
                     <label htmlFor="password">Password:</label>
-                    <input type="password" name="password" id="password" />
+                    <input type="password" name="password" id="password" placeholder='Your Password'/>
                 </div>
                 <p>Don't have an account? <Link to='/register' className='text-lg font-semibold'>Register</Link></p>
                 <input type="submit" value="Login" className='magic-btn cursor-pointer mt-2' />
