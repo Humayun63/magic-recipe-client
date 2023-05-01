@@ -34,6 +34,16 @@ const Home = () => {
                     }
                 </div>
             </section>
+            {/* Subscription section */}
+            <section className='my-12 bg-orange-300 px-2 py-6 rounded-md'>
+                <h3 className="magic-title">Subscribe For Latest Updates</h3>
+                <div className=''>
+                    <form className='md:flex items-center justify-center pb-4'>
+                        <input type="email" name="email" id="email" placeholder='Your Email Address' className='outline-none border border-orange-400 rounded-md md:mx-4 w-full md:w-1/3 px-4 py-2 text-xl' />
+                        <input type="submit" value="Subscribe" className='magic-btn cursor-pointer block  mt-4 w-full md:w-auto md:mt-0' />
+                    </form>
+                </div>
+            </section>
         </main>
     );
 };
