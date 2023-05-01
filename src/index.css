@@ -17,3 +17,12 @@
 .magic-btn{
     @apply bg-orange-400 px-4 py-2 rounded-md text-xl hover:bg-orange-600 font-semibold
 }
+.form-controls{
+    @apply mb-4
+}
+.form-controls label{
+    @apply block my-2 text-xl font-semibold
+}
+.form-controls input{
+    @apply text-xl  w-11/12 px-2 py-3 rounded-md outline-none border-orange-500 border 
+}

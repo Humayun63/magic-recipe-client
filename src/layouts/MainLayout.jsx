@@ -7,7 +7,7 @@ const MainLayout = () => {
     return (
         <div className='magic-container'>
             <Header></Header>
-            <div className='outlet-min-height'>
+            <div className='outlet-min-height px-2'>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
