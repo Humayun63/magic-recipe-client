@@ -32,3 +32,6 @@
 .form-controls input{
     @apply text-xl  w-11/12 px-2 py-3 rounded-md outline-none border-orange-500 border 
 }
+.magic-title{
+    @apply text-4xl my-4 font-semibold text-center
+}
