@@ -2,6 +2,8 @@ import React from 'react';
 import bannerImg from '../assets/2.png'
 import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../componets/chefCard';
+import ReviewCard from '../componets/ReviewCard';
+
 
 
 const Home = () => {
@@ -34,6 +36,13 @@ const Home = () => {
                     }
                 </div>
             </section>
+
+            {/* Review Section */}
+            <section className="my-12">
+                <h3 className="magic-title text-orange-500">Our Clients Review</h3>
+                <ReviewCard></ReviewCard>
+            </section>
+
             {/* Subscription section */}
             <section className='my-12 bg-orange-300 px-2 py-6 rounded-md'>
                 <h3 className="magic-title">Subscribe For Latest Updates</h3>
@@ -45,6 +54,8 @@ const Home = () => {
                 </div>
             </section>
         </main>
+
+
     );
 };
 

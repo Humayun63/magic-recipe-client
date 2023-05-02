@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .outlet-min-height{
     min-height: calc(90vh - 100px);
 }
