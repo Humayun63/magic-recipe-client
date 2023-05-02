@@ -9,8 +9,11 @@ const RecipeCard = ({ recipe }) => {
 
     const handleFavourite = event =>{
         event.target.disabled = true;
+        event.target.classList.remove('magic-btn')
+        event.target.classList.add('magic-btn-disabled')
         toast.success(<span className='text-green-400'>The recipe is your favorite</span>)
     }
+
     return (
         <div className='bg-orange-300 px-4 py-6 rounded-md shadow-xl md:w-1/3 flex flex-col my-4'>
             <div className='mb-4'>
