@@ -6,8 +6,13 @@ import { toast } from 'react-hot-toast';
 
 const RecipeCard = ({ recipe }) => {
     const { id, name, ingredients, method, rating } = recipe
+
+    const handleFavourite = event =>{
+        event.target.disabled = true;
+        toast.success(<span className='text-green-400'>The recipe is your favorite</span>)
+    }
     return (
-        <div className='bg-orange-300 px-4 py-6 rounded-md shadow-xl w-1/3 flex flex-col'>
+        <div className='bg-orange-300 px-4 py-6 rounded-md shadow-xl md:w-1/3 flex flex-col my-4'>
             <div className='mb-4'>
                 <h4 className='text-2xl font-bold my-4'>{name}</h4>
                 <div className='text-base my-4 text-justify'><span className='font-medium'>Ingredients: </span>
@@ -20,13 +25,13 @@ const RecipeCard = ({ recipe }) => {
                 <p className='text-base my-4 text-justify'><span className='font-medium'>Method: </span>{method}</p>
             </div>
             <div className='w-full border my-4 mt-auto border-orange-600'></div>
-            <div className='flex justify-between items-center'>
+            <div className='md:flex justify-between items-center'>
                 <div className='flex gap-2'>
                     <Rating value={rating} style={{ maxWidth: 100 }} readOnly></Rating>
                     {rating}
                 </div>
-                <button onClick={() => toast.success(<span className='text-green-400'>The recipe is your favorite</span>)}>
-                    <FaRegBookmark className='cursor-pointer text-xl'></FaRegBookmark>
+                <button  className='magic-btn my-4' onClick={handleFavourite}>
+                    Add To Favourite 
                 </button>
             </div>
         </div>

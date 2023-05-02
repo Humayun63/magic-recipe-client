@@ -18,14 +18,14 @@ const ChefRecipes = () => {
         <main>
             {/* Banner */}
             <section className='md:flex items-center justify-center gap-2 bg-orange-300 py-8 rounded-md'>
-                <div className='w-1/3'>
-                    <img src={picture} alt="Chef Picture" className='w-full h-64 object-contain' />
+                <div className='md:w-1/3'>
+                    <img src={picture} alt="Chef Picture" className='w-full h-64 object-contain p-2' />
                 </div>
-                <div className='w-1/2 px-8'>
+                <div className='md:w-1/2 px-8'>
                     <h2 className='text-4xl my-4 font-bold'>{name}</h2>
                     <p className='my-3 text-xl text-justify'><span className='font-semibold'>Biography: </span>{bio}</p>
-                    <p className='my-3 text-xl text-justify'><span className='font-semibold'>Experience: </span> {experience}</p>
-                    <p className='my-3 text-xl text-justify'><span className='font-semibold'>Number Of Recipies: </span>{numRecipes}</p>
+                    <p className='my-3 text-xl text-justify'><span className='font-semibold'>Experience: </span> {experience} years</p>
+                    <p className='my-3 text-xl text-justify'><span className='font-semibold'>Number Of Recipes: </span>{numRecipes}</p>
                     <p className='my-3 text-xl text-justify'><span className='font-semibold'>Likes: </span>{likes}</p>
                 </div>
             </section>

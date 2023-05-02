@@ -6,13 +6,13 @@ import { AuthContext } from '../providers/AuthProvider';
 const Header = () => {
     const { user, loading, logOut } = useContext(AuthContext)
     const [isOpen, setIsOpen] = useState(false)
-    
-    const handleLogOut = () =>{
+
+    const handleLogOut = () => {
         logOut()
-        .then(()=>{
-            
-        })
-        .catch(error => console.log(error))
+            .then(() => {
+
+            })
+            .catch(error => console.log(error))
     }
     return (
         <nav className='mx-2 relative'>
@@ -41,13 +41,13 @@ const Header = () => {
 
                 {/* User Login or User  info */}
                 <div className='hidden lg:block'>
-                    {    
+                    {
                         user ?
                             <div className='flex items-center gap-3'>
                                 {
                                     (!loading && user?.photoURL) ?
-                                    <img src={`${user?.photoURL}`} alt="User Photo" className='w-12 mx-2 rounded-full cursor-pointer' title={user?.displayName} /> :
-                                    <FaUserAlt className='text-2xl cursor-pointer' title={user?.displayName}></FaUserAlt>
+                                        <img src={`${user?.photoURL}`} alt="User Photo" className='w-12 mx-2 rounded-full cursor-pointer' title={user?.displayName} /> :
+                                        <FaUserAlt className='text-2xl cursor-pointer' title={user?.displayName}></FaUserAlt>
                                 }
                                 <button className="magic-btn" onClick={handleLogOut}>Log Out</button>
                             </div> :
@@ -68,6 +68,19 @@ const Header = () => {
                 <div className='-mx-2'>
                     <div className='mx-2 text-center pb-4 pe-2 pt-2 absolute top-0  bg-orange-400 rounded-md w-full z-10'>
                         <FaTimes className='text-2xl ms-auto' onClick={() => setIsOpen(false)}></FaTimes>
+                        {/* user photo */}
+                        <div className='flex justify-center items-center'>
+                            {
+                                user && <>
+                                    {
+                                        (!loading && user?.photoURL) ?
+                                            <img src={`${user?.photoURL}`} alt="User Photo" className='w-12 mx-2 rounded-full cursor-pointer' title={user?.displayName} /> :
+                                            <FaUserAlt className='text-2xl cursor-pointer' title={user?.displayName}></FaUserAlt>
+                                    }
+                                </>
+
+                            }
+                        </div>
                         <ul className=''>
                             <li>
                                 <NavLink to='/' className={({ isActive }) => (isActive ? 'active' : 'default')} onClick={() => setIsOpen(false)} >Home</NavLink>
@@ -79,7 +92,13 @@ const Header = () => {
                                 <NavLink to='/about' className={({ isActive }) => (isActive ? 'active' : 'default')} onClick={() => setIsOpen(false)} >About Us</NavLink>
                             </li>
                         </ul>
-
+                        {
+                            user ?
+                                <button className="magic-mobile-btn" onClick={handleLogOut}>Log Out</button> :
+                                <Link to='/login'>
+                                    <button className='magic-mobile-btn '>Login</button>
+                                </Link>
+                        }
                     </div>
                 </div>
 

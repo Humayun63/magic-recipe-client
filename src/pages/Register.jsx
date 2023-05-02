@@ -4,7 +4,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const Register = () => {
-    const { createUser, updateUser, setLoading } = useContext(AuthContext)
+    const { createUser, updateUser, logOut } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const handleRegister = event => {
@@ -24,17 +24,21 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
-                setLoading(true)
                 updateUser(name, photo)
-                    .then(() => (
-                        toast.success(<span className='text-green-600'>Welcome {result.user.displayName || 'User'}</span>)
-                    ))
+                    .then(() => {
+
+                        toast.success(<span className='text-green-600'>Registration  Successful</span>)
+                        logOut()
+                            .then()
+                            .catch(error => (
+                                toast.error(<span className='text-red-600'>{error.message}</span>)
+                            ))
+                    })
                     .catch(error => (
                         toast.error(<span className='text-red-600'>{error.message}</span>)
-                    ));
-                console.log(result.user)
+                    ))
                 form.reset()
-                navigate('/', {replace:true})
+                navigate('/login', { replace: true })
             })
             .catch(error => (
                 toast.error(<span className='text-red-600'>{error.message}</span>)
