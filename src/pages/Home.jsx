@@ -7,10 +7,11 @@ import Loader from '../componets/Loader';
 
 
 
+
 const Home = () => {
     const chefInfo = useLoaderData()
     const navigation = useNavigation()
-    if(navigation.state === 'loading'){
+    if (navigation.state === 'loading') {
         return <Loader></Loader>
     }
     return (
@@ -30,16 +31,17 @@ const Home = () => {
             {/* Chef Section */}
             <section className='my-12'>
                 <h3 className='magic-title text-orange-500'>Our Honorable Chefs</h3>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                    {
-                        chefInfo.map(chef => (
-                            <ChefCard
-                                key={chef.id}
-                                chef={chef}
-                            ></ChefCard>
-                        ))
-                    }
-                </div>
+
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                        {
+                            chefInfo.map(chef => (
+                                <ChefCard
+                                    key={chef.id}
+                                    chef={chef}
+                                ></ChefCard>
+                            ))
+                        }
+                    </div>
             </section>
 
             {/* Review Section */}

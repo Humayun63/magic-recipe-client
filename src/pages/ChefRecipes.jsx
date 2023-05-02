@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import RecipeCard from '../componets/RecipeCard';
+import LazyLoad from 'react-lazy-load';
 
 const ChefRecipes = () => {
     const chef = useLoaderData()
@@ -19,7 +20,9 @@ const ChefRecipes = () => {
             {/* Banner */}
             <section className='md:flex items-center justify-center gap-2 bg-orange-300 py-8 rounded-md'>
                 <div className='md:w-1/3'>
-                    <img src={picture} alt="Chef Picture" className='w-full h-64 object-contain p-2' />
+                    <LazyLoad>
+                        <img src={picture} alt="Chef Picture" className='w-full h-64 object-contain p-2' />
+                    </LazyLoad>
                 </div>
                 <div className='md:w-1/2 px-8'>
                     <h2 className='text-4xl my-4 font-bold'>{name}</h2>
