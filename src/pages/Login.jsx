@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Login = () => {
+    const {googleSignIn} = useContext(AuthContext)
+
+
+    const handleGoogleSignIn = () =>{
+        googleSignIn()
+        .then(result =>{
+            console.log(result.user)
+        })
+        .catch(error => console.log(error))
+    }
+
     return (
         <div className='mx-auto md:w-2/5 rounded-md bg-orange-300 px-4 py-8 shadow-2xl'>
             <form>
@@ -19,7 +31,7 @@ const Login = () => {
             </form>
             <hr className='my-4' />
             <div className='text-center'>
-                <button className='magic-btn inline-flex items-center gap-2 mx-auto my-4'><FaGoogle ></FaGoogle> Login With Google</button>
+                <button className='magic-btn inline-flex items-center gap-2 mx-auto my-4' onClick={handleGoogleSignIn}><FaGoogle ></FaGoogle> Login With Google</button>
                 <button className='magic-btn inline-flex items-center gap-2 mx-auto '><FaGithub></FaGithub> Login With GitHub</button>
             </div>
         </div>
