@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUserAlt } from 'react-icons/fa';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Header = () => {
+    const { user, loading, logOut } = useContext(AuthContext)
     const [isOpen, setIsOpen] = useState(false)
+    
+    const handleLogOut = () =>{
+        logOut()
+        .then(()=>{
+            
+        })
+        .catch(error => console.log(error))
+    }
     return (
         <nav className='mx-2 relative'>
             <div className='flex items-center justify-between mb-16'>
@@ -31,9 +41,20 @@ const Header = () => {
 
                 {/* User Login or User  info */}
                 <div className='hidden lg:block'>
-                    <Link to='/login'>
-                        <button className='magic-btn '>Login</button>
-                    </Link>
+                    {    
+                        user ?
+                            <div className='flex items-center gap-3'>
+                                {
+                                    (!loading && user?.photoURL) ?
+                                    <img src={`${user?.photoURL}`} alt="User Photo" className='w-12 mx-2 rounded-full cursor-pointer' title={user?.displayName} /> :
+                                    <FaUserAlt className='text-2xl cursor-pointer' title={user?.displayName}></FaUserAlt>
+                                }
+                                <button className="magic-btn" onClick={handleLogOut}>Log Out</button>
+                            </div> :
+                            <Link to='/login'>
+                                <button className='magic-btn '>Login</button>
+                            </Link>
+                    }
                 </div>
 
                 {/* Menu bar for mobile */}

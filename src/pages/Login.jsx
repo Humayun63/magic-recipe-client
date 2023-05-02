@@ -4,11 +4,18 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 const Login = () => {
-    const {googleSignIn} = useContext(AuthContext)
+    const {googleSignIn , githubSignIn} = useContext(AuthContext)
 
 
     const handleGoogleSignIn = () =>{
         googleSignIn()
+        .then(result =>{
+            console.log(result.user)
+        })
+        .catch(error => console.log(error))
+    }
+    const handleGithubSignIn = () =>{
+        githubSignIn()
         .then(result =>{
             console.log(result.user)
         })
@@ -32,7 +39,7 @@ const Login = () => {
             <hr className='my-4' />
             <div className='text-center'>
                 <button className='magic-btn inline-flex items-center gap-2 mx-auto my-4' onClick={handleGoogleSignIn}><FaGoogle ></FaGoogle> Login With Google</button>
-                <button className='magic-btn inline-flex items-center gap-2 mx-auto '><FaGithub></FaGithub> Login With GitHub</button>
+                <button className='magic-btn inline-flex items-center gap-2 mx-auto ' onClick={handleGithubSignIn}><FaGithub></FaGithub> Login With GitHub</button>
             </div>
         </div>
     );
