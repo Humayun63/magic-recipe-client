@@ -7,14 +7,14 @@ import { toast } from 'react-hot-toast';
 const Login = () => {
     const { googleSignIn, githubSignIn, emailSignIn } = useContext(AuthContext)
     const location = useLocation();
-    const form = location.state?.form?.pathname || '/'
+    const from = location.state?.from?.pathname || '/'
     const navigate = useNavigate()
 
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
                 toast.success(<span className='text-green-600'>Welcome {result.user.displayName || 'User'}</span>)
-                navigate(form, {replace:true})
+                navigate(from, {replace:true})
             })
             .catch(error => console.log(error))
     }
@@ -22,7 +22,7 @@ const Login = () => {
         githubSignIn()
             .then(result => {
                 toast.success(<span className='text-green-600'>Welcome {result.user.displayName || 'User'}</span>)
-                navigate(form, {replace:true})
+                navigate(from, {replace:true})
             })
             .catch(error => console.log(error))
     }
@@ -37,7 +37,7 @@ const Login = () => {
         emailSignIn(email, password)
             .then(result => {
                 toast.success(<span className='text-green-600'>Welcome {result.user.displayName || 'User'}</span>)
-                navigate(form, {replace:true})
+                navigate(from, {replace:true})
                 form.reset()
             })
             .catch(error => (

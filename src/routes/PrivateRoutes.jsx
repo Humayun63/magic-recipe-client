@@ -10,10 +10,11 @@ const PrivateRoutes = ({children}) => {
     if(loading){
         return <Loader></Loader>
     }
+
     if(user){
         return children
     }
-    return <Navigate to='/login' replace state={{form:location}}></Navigate>
+    return <Navigate to='/login' replace state={{from:location}}></Navigate>
 };
 
 export default PrivateRoutes;

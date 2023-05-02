@@ -30,7 +30,8 @@ const router = createBrowserRouter([
             },
             {
                 path:'chef/:id',
-                element:<PrivateRoutes><ChefRecipes></ChefRecipes></PrivateRoutes>
+                element:<PrivateRoutes><ChefRecipes></ChefRecipes></PrivateRoutes>,
+                loader:({params}) => fetch(`https://magic-recipe-server-humayun63.vercel.app/chefInfo/${params.id}`)
             },
             {
                 path:'blog',

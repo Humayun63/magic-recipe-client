@@ -1,13 +1,18 @@
 import React from 'react';
 import bannerImg from '../assets/2.png'
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import ChefCard from '../componets/chefCard';
 import ReviewCard from '../componets/ReviewCard';
+import Loader from '../componets/Loader';
 
 
 
 const Home = () => {
     const chefInfo = useLoaderData()
+    const navigation = useNavigation()
+    if(navigation.state === 'loading'){
+        return <Loader></Loader>
+    }
     return (
         <main>
             {/* Banner Section */}
