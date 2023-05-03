@@ -15,6 +15,7 @@ const ChefRecipes = () => {
             .catch(error => console.log(error))
     }, [])
 
+
     return (
         <main>
             {/* Banner */}
@@ -40,6 +41,7 @@ const ChefRecipes = () => {
                         recipes.map(recipe => (
                             <RecipeCard
                                 key={recipe.id}
+                                chefId={id}
                                 recipe={recipe}
                             ></RecipeCard>
                         ))

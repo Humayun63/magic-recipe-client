@@ -3,15 +3,26 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { FaRegBookmark } from 'react-icons/fa';
 import { toast } from 'react-hot-toast';
+import { getFromDB, saveToDB } from '../utilities/fakeDB';
 
-const RecipeCard = ({ recipe }) => {
+const RecipeCard = ({ recipe, chefId }) => {
     const { id, name, ingredients, method, rating } = recipe
 
+    // Disable button which already added to favourite
+    const favoriteRecipes = getFromDB()[chefId] || []
+
+
     const handleFavourite = event =>{
+        // DISABLE BUTTON
         event.target.disabled = true;
         event.target.classList.remove('magic-btn')
         event.target.classList.add('magic-btn-disabled')
+
+        // SHOW TOAST
         toast.success(<span className='text-green-400'>The recipe is your favorite</span>)
+
+        // SAVE TO LOCAL
+        saveToDB(chefId,id)
     }
 
     return (
@@ -33,8 +44,8 @@ const RecipeCard = ({ recipe }) => {
                     <Rating value={rating} style={{ maxWidth: 100 }} readOnly></Rating>
                     {rating}
                 </div>
-                <button  className='magic-btn my-4' onClick={handleFavourite}>
-                    Add To Favourite 
+                <button disabled={favoriteRecipes.includes(id) ? true : false} className={`my-4 ${ favoriteRecipes.includes(id) ? 'magic-btn-disabled' : 'magic-btn'}`} onClick={handleFavourite}>
+                    Add To Favorite 
                 </button>
             </div>
         </div>

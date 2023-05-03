@@ -34,6 +34,9 @@ const Header = () => {
                             <NavLink to='/blog' className={({ isActive }) => (isActive ? 'active' : 'default')}>Blog</NavLink>
                         </li>
                         <li>
+                            <NavLink to='/favorite' className={({ isActive }) => (isActive ? 'active' : 'default')}>Favorite</NavLink>
+                        </li>
+                        <li>
                             <NavLink to='/about' className={({ isActive }) => (isActive ? 'active' : 'default')}>About Us</NavLink>
                         </li>
                     </ul>
@@ -87,6 +90,9 @@ const Header = () => {
                             </li>
                             <li>
                                 <NavLink to='/blog' className={({ isActive }) => (isActive ? 'active' : 'default')} onClick={() => setIsOpen(false)} >Blog</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/favorite' className={({ isActive }) => (isActive ? 'active' : 'default')} onClick={() => setIsOpen(false)} >Favorite</NavLink>
                             </li>
                             <li>
                                 <NavLink to='/about' className={({ isActive }) => (isActive ? 'active' : 'default')} onClick={() => setIsOpen(false)} >About Us</NavLink>

@@ -7,6 +7,9 @@ import Register from "../pages/Register";
 import ChefRecipes from "../pages/ChefRecipes";
 import Blog from "../pages/Blog";
 import PrivateRoutes from "./PrivateRoutes";
+import FavoriteRecipe from "../pages/FavoriteRecipe";
+import useCustomeLoader from "../hooks/useCustomeLoader";
+import About from "../pages/About";
 
 
 const router = createBrowserRouter([
@@ -39,7 +42,13 @@ const router = createBrowserRouter([
             },
             {
                 path:'about',
-                element: <h2>Working!</h2>
+                element: <About></About>
+            },
+            {
+                path:'favorite',
+                element:<PrivateRoutes> <FavoriteRecipe></FavoriteRecipe> </PrivateRoutes>,
+                loader: useCustomeLoader
+
             }
 
         ]
