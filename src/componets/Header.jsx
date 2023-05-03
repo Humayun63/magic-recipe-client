@@ -4,7 +4,7 @@ import { FaBars, FaTimes, FaUserAlt } from 'react-icons/fa';
 import { AuthContext } from '../providers/AuthProvider';
 
 const Header = () => {
-    const { user, loading, logOut } = useContext(AuthContext)
+    const { user, loading, logOut, setIsReset } = useContext(AuthContext)
     const [isOpen, setIsOpen] = useState(false)
 
     const handleLogOut = () => {
@@ -59,7 +59,7 @@ const Header = () => {
                                 <button className="magic-btn" onClick={handleLogOut}>Log Out</button>
                             </div> :
                             <Link to='/login'>
-                                <button className='magic-btn '>Login</button>
+                                <button className='magic-btn ' onClick={()=> setIsReset(false)}>Login</button>
                             </Link>
                     }
                 </div>
@@ -110,7 +110,7 @@ const Header = () => {
                             user ?
                                 <button className="magic-mobile-btn" onClick={handleLogOut}>Log Out</button> :
                                 <Link to='/login'>
-                                    <button className='magic-mobile-btn '>Login</button>
+                                    <button className='magic-mobile-btn ' onClick={()=> setIsReset(false)}>Login</button>
                                 </Link>
                         }
                     </div>

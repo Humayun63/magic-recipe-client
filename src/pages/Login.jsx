@@ -5,8 +5,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
-    const [isReset, setIsReset] = useState(false)
-    const { googleSignIn, githubSignIn, emailSignIn, resetPassword } = useContext(AuthContext)
+    const { googleSignIn, githubSignIn, emailSignIn, resetPassword, isReset, setIsReset } = useContext(AuthContext)
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
     const navigate = useNavigate()

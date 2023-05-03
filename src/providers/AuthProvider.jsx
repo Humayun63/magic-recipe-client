@@ -12,6 +12,8 @@ const githubProvider = new GithubAuthProvider()
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [isReset, setIsReset] = useState(false)
+
 
     const createUser = (email, password) =>{
         setLoading(true)
@@ -61,6 +63,7 @@ const AuthProvider = ({children}) => {
     const authInfo = {
         user,
         loading,
+        isReset,
         setUser,
         setLoading,
         createUser,
@@ -69,7 +72,8 @@ const AuthProvider = ({children}) => {
         googleSignIn,
         githubSignIn,
         logOut,
-        resetPassword
+        resetPassword,
+        setIsReset
     }
 
     return (
