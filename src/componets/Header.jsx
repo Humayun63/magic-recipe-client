@@ -49,8 +49,12 @@ const Header = () => {
                             <div className='flex items-center gap-3'>
                                 {
                                     (!loading && user?.photoURL) ?
-                                        <img src={`${user?.photoURL}`} alt="User Photo" className='w-12 mx-2 rounded-full cursor-pointer' title={user?.displayName} /> :
-                                        <FaUserAlt className='text-2xl cursor-pointer' title={user?.displayName}></FaUserAlt>
+                                        <Link to='/profile'>
+                                            <img src={`${user?.photoURL}`} alt="User Photo" className='w-12 mx-2 rounded-full cursor-pointer' title={user?.displayName} />
+                                        </Link> :
+                                        <Link to='/profile'>
+                                            <FaUserAlt className='text-2xl cursor-pointer' title={user?.displayName}></FaUserAlt>
+                                        </Link>
                                 }
                                 <button className="magic-btn" onClick={handleLogOut}>Log Out</button>
                             </div> :
@@ -77,8 +81,12 @@ const Header = () => {
                                 user && <>
                                     {
                                         (!loading && user?.photoURL) ?
-                                            <img src={`${user?.photoURL}`} alt="User Photo" className='w-12 mx-2 rounded-full cursor-pointer' title={user?.displayName} /> :
-                                            <FaUserAlt className='text-2xl cursor-pointer' title={user?.displayName}></FaUserAlt>
+                                            <Link to='/profile'>
+                                                <img src={`${user?.photoURL}`} alt="User Photo" className='w-12 mx-2 rounded-full cursor-pointer' title={user?.displayName} />
+                                            </Link> :
+                                            <Link to='/profile'>
+                                                <FaUserAlt className='text-2xl cursor-pointer' title={user?.displayName}></FaUserAlt>
+                                            </Link>
                                     }
                                 </>
 

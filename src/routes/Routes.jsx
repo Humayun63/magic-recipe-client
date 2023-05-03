@@ -10,6 +10,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import FavoriteRecipe from "../pages/FavoriteRecipe";
 import useCustomeLoader from "../hooks/useCustomeLoader";
 import About from "../pages/About";
+import Profile from "../pages/Profile";
 
 
 const router = createBrowserRouter([
@@ -48,7 +49,10 @@ const router = createBrowserRouter([
                 path:'favorite',
                 element:<PrivateRoutes> <FavoriteRecipe></FavoriteRecipe> </PrivateRoutes>,
                 loader: useCustomeLoader
-
+            },
+            {
+                path:'profile',
+                element:<PrivateRoutes><Profile></Profile></PrivateRoutes>
             }
 
         ]
