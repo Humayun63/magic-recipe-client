@@ -55,6 +55,7 @@ const Login = () => {
                 form.reset()
                 toast.success('An Email is sent to your email address!')
                 setIsReset(false)
+                window.location.reload()
             })
             .catch(error => {
                 toast.error(error.message)

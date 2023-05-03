@@ -44,6 +44,7 @@ const Profile = () => {
         updateUser(name, photo)
         .then(()=>{
             toast.success('Profile Updated. Please Reload your page')
+            window.location.reload()
         })
         .catch(error =>(
             toast.error(error.message)
@@ -85,7 +86,7 @@ const Profile = () => {
                             <label htmlFor="photo">Photo URL:</label>
                             <input type="text" name="photo" id="photo" required placeholder='Your Photo URL' />
                         </div>
-                        <input type="submit" value="Login" className='magic-btn cursor-pointer mt-2' />
+                        <input type="submit" value="Upadate" className='magic-btn cursor-pointer mt-2' />
                     </form>
                 </div>
             </Modal>

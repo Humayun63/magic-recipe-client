@@ -10,9 +10,13 @@ const Header = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-
+                setIsOpen(false)
             })
             .catch(error => console.log(error))
+    }
+    const handleClick = () =>{
+        setIsOpen(false)
+        setIsReset(false)
     }
     return (
         <nav className='mx-2 relative'>
@@ -82,10 +86,10 @@ const Header = () => {
                                     {
                                         (!loading && user?.photoURL) ?
                                             <Link to='/profile'>
-                                                <img src={`${user?.photoURL}`} alt="User Photo" className='w-12 mx-2 rounded-full cursor-pointer' title={user?.displayName} />
+                                                <img src={`${user?.photoURL}`} alt="User Photo" className='w-12 mx-2 rounded-full cursor-pointer' title={user?.displayName} onClick={() => setIsOpen(false) } />
                                             </Link> :
                                             <Link to='/profile'>
-                                                <FaUserAlt className='text-2xl cursor-pointer' title={user?.displayName}></FaUserAlt>
+                                                <FaUserAlt className='text-2xl cursor-pointer' title={user?.displayName} onClick={() => setIsOpen(false) } ></FaUserAlt>
                                             </Link>
                                     }
                                 </>
@@ -110,7 +114,7 @@ const Header = () => {
                             user ?
                                 <button className="magic-mobile-btn" onClick={handleLogOut}>Log Out</button> :
                                 <Link to='/login'>
-                                    <button className='magic-mobile-btn ' onClick={()=> setIsReset(false)}>Login</button>
+                                    <button className='magic-mobile-btn ' onClick={handleClick}>Login</button>
                                 </Link>
                         }
                     </div>
