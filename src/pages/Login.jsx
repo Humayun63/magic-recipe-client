@@ -54,7 +54,7 @@ const Login = () => {
             .then(() => {
                 form.reset()
                 toast.success('An Email is sent to your email address!')
-                navigate(from, {replace: true})
+                setIsReset(false)
             })
             .catch(error => {
                 toast.error(error.message)
